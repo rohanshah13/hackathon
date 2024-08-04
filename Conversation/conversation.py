@@ -167,7 +167,7 @@ class ConversationalAgent:
 
         return agent_chain
 
-    def run_chain(self):
+    def run_chain(_self):
         st.session_state.doc_sources = []
         st.session_state.google_sources = []
 
@@ -176,7 +176,7 @@ class ConversationalAgent:
             with st.chat_message('assistant'):
                 st_callback = StreamlitCallbackHandler(st.container())
                 with get_openai_callback() as cb:
-                    llm_response = self.agent(inputs=st.session_state.human_prompt, callbacks=[st_callback])
+                    llm_response = _self.agent(inputs=st.session_state.human_prompt, callbacks=[st_callback])
                     st.session_state.token_count += cb.total_tokens
                 return llm_response
 
@@ -231,7 +231,7 @@ class ConversationalAgent:
         }
 
         res = openai.ChatCompletion.create(
-            model='gpt-3.5-turbo-0613',
+            model='gpt-3.5-turbo',
             messages=[{"role": "user", "content": conversation}],
             functions=[search_keywords_extract_function]
         )

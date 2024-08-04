@@ -25,8 +25,8 @@ class SummarizationTool(CustomTool):
         return self.run_chain()
 
     @st.cache
-    def run_chain(self):
-        return self.chain.run(self.document_chunks)
+    def run_chain(_self):
+        return _self.chain.run(_self.document_chunks)
 
 
 class LookupTool(CustomTool):
